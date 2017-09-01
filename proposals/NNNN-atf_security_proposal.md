@@ -7,28 +7,40 @@
 
 ## Introduction
 
-This proposal describes support of security sessions in ATF (Automated Test Framework).
-ATF should be able to test SDL security feature.
+This proposal describes:
+ - Support for security sessions in ATF (Automated Test Framework).
+ - Check Mobile RPCs and Mobile API throw secure sessions
+ - Testing SDL functionality through secure connections;
+ - ATF should be able to test SDL security as a feature.
 
+Security feature of SDL consists of :
+ - Handshake  
+ - TLS\DTLS protocols support
+ - Behaviour during unsecured mobile application RPCs on secured channel. 
+ - Certificates for each application and managing certificates by Policies
+ - Check SDL policies through secure connection for all Policies flows. 
+ 
 Main ATF features for checking SDL security are:
- - Support of secure SDL sessions;
+ - Support of encrypted SDL sessions;
  - Support of testing broken handshake;
  - Support of sending raw data in secure channel;
- - Support of expected secure requests\responses\notifications;
+ - Support of expected encrypted requests\responses\notifications;
  - Support Transport Layer Security (TLS) and Datagram Transport Layer Security (DTLS). 
 
 ## Motivation
 
-Motivation of this proposal is to create ability of coverage the secure sessions. Which is the most important not covered part of SDL functionality.
+Purpose of stabilizing ATF is to create coverage for secure sessions. Which is the very important of SDL functionality that is not covered.
 
-Manual testing of security SDL feature is slow and expensive. Also there is a big probability of error during manual testing.
+Manual testing throught SyncProxyTester of security SDL feature is slow and expensive. Also there is a big probability of human errors during manual testing.
 Testing automatization of all SDL use cases is the best option to be sure that new code does not break SDL functionality.
 
-ATF has possibility to cover almost all SDL use cases with automatic testing. But there is still some functionality that remains uncovered my ATF:
- - Bluetooth transport;
- - USB transport;
- - Security feature;
- - Audio\Videostreaming (partially supported).
+ATF has possibility to cover 95% SDL use cases with automatic testing. But there is still some functionality that will remain uncovered by ATF:
+ - Security feature (**subject of this project**);
+ - Bluetooth transport (ATF only works with TCP);
+ - USB transport (ATF only works with TCP);
+ - Audio\Videostreaming (partially supported, will be fixed after security feature is completed).
+ - Horizontal scale to improve time of script execution.
+ - Support of stress testing.
  
 ## Proposed solution
 
@@ -126,10 +138,15 @@ Expect custom packet for checking TLS Handshake.
 
 - session.SendPacket - very low level interface, it might require a lot of additional complicated logic for constructing bytes to send in script. This interface also allows tester to send any data.
 
+ExpectPacket and SendPacket should be replaced with more high level APIs specific to handshake, like :
+- expect server Hello 
+- expect server certificate
+- ..
+
 ## Impact on existing code
 
 Should be impacted only ATF code.
 If during implementation will be found some blocker issues in SDL, they should be fixed.
 
 ## Alternatives considered
-Manual testing with using mobile application and Web HMI. 
+Manual testing with using SyncProxyTester. 
