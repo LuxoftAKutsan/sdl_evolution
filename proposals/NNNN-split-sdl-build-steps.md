@@ -35,6 +35,7 @@ Build all 3rd party libraries
 `make third-party-install` 
 
 _make third-party-install may require root access_
+
 Install all 3rd party libraries to the system or path regulated by environment variables
 
 #### 3. Build sdl
