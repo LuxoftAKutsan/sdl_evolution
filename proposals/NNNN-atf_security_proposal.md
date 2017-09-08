@@ -29,18 +29,18 @@ Main ATF items for checking SDL security are:
  
 ## Motivation
 
-Purpose of stabilizing ATF is to create coverage for secure sessions. Which is the very important part of SDL functionality that is not covered by automated test scripts yet.
+Secure connection handling is one of the most important features of ATF improvements. Which allows to cover by automated tests the critical and difficult part of SDL functionality.
 
-Manual testing through SyncProxyTester of security SDL feature is slow and expensive. Also there is a big probability of human errors during manual testing.
-Testing automatization of all SDL use cases is the best option to be sure that new code does not break SDL functionality.
+Manual testing with using SyncProxyTester of security SDL feature is slow and expensive. Also there is a big probability of human errors during manual testing.
+Testing automation of all SDL use cases is the best option to be sure that new code does not break SDL functionality.
 
 ATF has possibility to cover 95% SDL use cases with automatic testing. But there is still some functionality that still remain uncovered by ATF:
  - Security feature (**subject of this proposal**)
- - Bluetooth transport (ATF only works with TCP)
- - USB transport (ATF only works with TCP)
- - Audio/Video streaming (partially supported, will be fixed after security feature is completed)
- - Horizontal scale to improve time of script execution
- - Support of stress testing
+ - Bluetooth transport (ATF only works with TCP) (**out of scope of this proposal**)
+ - USB transport (ATF only works with TCP) (**out of scope of this proposal**)
+ - Audio/Video streaming (partially supported, will be fixed after security feature is completed) (**out of scope of this proposal**)
+ - Horizontal scale to improve time of script execution (**out of scope of this proposal**)
+ - Support of stress testing (**out of scope of this proposal**)
  
 ## Proposed solution
 
@@ -62,8 +62,8 @@ Will be added new component: *SecurityManager*
 
 Responsibility of SecurityManager:
  - Manage digital certificates
- - Managing of security protocols
- - Managing of cyphers
+ - Manage security protocols
+ - Manage cyphers
  - Handle Secure Sockets Layer (SSL) context
  - Provide interface for encryption/decryption
  - Be able to perform a handshake
@@ -87,7 +87,7 @@ Responsibility of SecurityManager:
 ##### session.SendEncryptedRPC:
 ###### Description
  Send encrypted RPC:
-  1. Encrypts payload and binary data
+  1. Encrypt payload and binary data
   2. Send RPC to SDL
 ###### Arguments:
   - function name - stringified RPC name  
@@ -116,29 +116,27 @@ Responsibility of SecurityManager:
   
 ##### session.SendFrame:
 ###### Description
-Send SmartDeviceLink frame for testing wrong handshake.
+Send SmartDeviceLink frame for test handshake.
 ###### Arguments:
   - header - table with header data
   - data - raw data to send
 ###### Return value:
-  N\A
+N/A
   
 ##### session.ExpectFrame:
 ###### Description
-Expect SmartDeviceLink frame for checking handshake.
+Expect SmartDeviceLink frame for test handshake.
 ###### Arguments:
   - header - table with header data
+  - data - raw data to receive
 ###### Return value:
   - expectation  
   
 ## Potential downsides
-
 N/A
 
 ## Impact on existing code
-
 Should be impacted only ATF code.
-If during implementation will be found some blocker issues in SDL, they should be fixed.
 
 ## Alternatives considered
-Manual testing with using of SyncProxyTester. 
+Manual testing with using of SyncProxyTester mobile application. 
