@@ -24,23 +24,23 @@ Building third party libraries ans installing them to the system should be separ
 
 Split sdl build to the folowing steps : 
 
-1. Build third party libraries in make target:
+#### 1 Build third party libraries in make target:
 
 `make third-party`
 
 Build all 3rd party libraries
 
-2 Install third party libraries in make target:
+#### 2 Install third party libraries in make target:
 
 `make third-party-install` 
 
 _make third-party-install may require root access_
 Install all 3rd party libraries to the system or path regulated by environment variables
 
-3. Build sdl
+#### 3. Build sdl
 `make` 
 
-4. Install SDL
+#### 4. Install SDL
 `make install`
 Install all required stall for runnng SDL to the `bin` folder or path regulated by environment variables
 
