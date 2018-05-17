@@ -7,17 +7,15 @@
 
 ## Introduction
 
-Providing ability for ATF to emulate `HMI_INTERFACE` in case if SDL located on remote workstation, and for communication with HMI used special local only transport.
+This proposal is to provide ability for ATF to emulate HMI_INTERFACE in case SDL is located on remote workstation and to set communication with HMI using only special local transport.
 
 ## Motivation
 
-Automated testing of SDL on OEM transport will significant reduce amount of efforts on integration step. 
-Also it can guarantee that during integration business logic of SDL was not corrupted and successfully ported. 
+Automated testing of SDL on OEM transport would significantly reduce the amount of efforts at integration stage. 
+Also, it can ensure that during integration the business logic of SDL will be ported successfully and will not be corrupted. 
 
-On various OEM platforms communication between HMI and SDL performed throw transport that may not be exposed out the target (mqueue)
-So ATF can't connect to SDL from HMI side and emulate HMI behavior. 
-This proposal is about adding optional proxy(relay) layer that will connect to SDL locally on target and expose API to ATF located on other workstation via TCP
-
+On various OEM platforms communication between HMI and SDL is performed through transport that may not be retrieved from the target (mqueue). So ATF can't connect to SDL from HMI side and emulate HMI behavior.  
+This proposal suggests adding optional proxy (relay) layer that will connect to SDL locally on target and expose API to ATF located on other workstation via TCP. 
 
 ## Proposed solution
 
@@ -27,8 +25,8 @@ Create relay server interface that will expose following RPC's:
  - receive (channel) -> data 
  - close (channel) -> status
 
-For communication with SDL OEM adapter will need to implement this API's.
-In case if OEM requires additional functionality , relay server API may be extended.
+For communication with SDL OEM adapter will need to implement this API's.  
+In case OEM requires additional functionality, relay server API may be extended.
 
 ATF should use this API for sending/receiving data as HMI side.
 
@@ -40,7 +38,7 @@ Remote connection as Mobile side may be done in scope of following proposal : [A
 
 ## Potential downsides
 
-
+N/A
 
 ## Impact on existing code
 
@@ -49,4 +47,4 @@ Impacts only Automated test framework code.
 
 ## Alternatives considered
 
-Force OEM to use TCP and web-sockets for HMI communication
+Determine to use TCP and web-sockets for HMI communication by OEM.
