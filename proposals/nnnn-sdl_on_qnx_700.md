@@ -6,23 +6,22 @@
 * Impacted Platforms: [Core, ATF]
 
 ## Introduction
-This proposal is about porting SDL on QNX700 x86 platform and testing SDL on QNX700 x86.
+This proposal is about porting SDL to QNX700 x86 platform and testing SDL on QNX700 x86.
 
 ## Motivation
 
-QNX 6.5 (currently supported by SDL) is already out of date. New version of QNX released : QNX7.0.
-QNX 7.0  widely used my OEM manyfactures, so SDL should support building and working for QNX7.0. 
-
+**QNX 6.5** (currently supported by SDL) is already out of date. New version of QNX released is QNX7.0.  
+**QNX 7.0** is widely used by OEM manyfactures, so SDL should support building and working on QNX7.0. 
 
 ## Proposed solution
 
-Proposed default platform for QNX is x86 ( same as for linux). 
+Proposed default platform for QNX is x86 (same as for Linux). 
 
-### Rework of SDL code : 
+### Rework of SDL code 
 
-#### 3rd party libraries for QNX7.
+#### 3rd party libraries for QNX7
 
-All third party libraries compiled within SDL should be configured for QNX7(x86) :
+All third party libraries compiled within SDL should be configured for QNX7(x86):
   - boost
   - libapr
   - libaprutils
@@ -34,50 +33,47 @@ For all SDL dependencies should be found versions for QNX7(x86) or alternatives.
 
 #### Refactoring of cmake structure
 
-SDL may use modern cmake approach of creating targets. It will simplify porting SDL on any platform.
-
+SDL may use modern cmake approach of creating targets. It will simplify porting SDL on any platform.  
 For each third party library used by SDL should be created `.cmake` file, that will expose library as `cmake_library`.
 
-This will allow to make more clear dependencies, avoid dependency gaps ( required for multithreading compilation)
-And replace dependency during porting on other platform just with replacing `.cmake` third party library  file. 
+This will allow to make clearer dependencies, avoid dependency gaps (required for multithreading compilation)  
+and replace dependency during porting to other platform just with replacing `.cmake` third party library file. 
 
-#### Create QNX7.0 USB transport adapter. 
+#### Create QNX7.0 USB transport adapter 
 
-Linux USB transport adapter use libusb library.
-For QNX will be used another usb library, and additional transport adapter should be created.
+Linux USB transport adapter uses `libusb` library.
+For QNX will be used another usb library and additional transport adapter should be created.
 
-#### Create QNX7.0 Bluetooth transport adapter. 
+#### Create QNX7.0 Bluetooth transport adapter 
 
-Linux USB transport adapter use libbluetooth library.
-For QNX will be used another BT library, and additional transport adapter should be created.
+Linux USB transport adapter uses `libbluetooth` library.
+For QNX will be used another BT library and additional transport adapter should be created.
 
 #### Modify utils component
 
-Utils component will be affected with porting SDL on new QNX7 platform. 
+Utils component will be affected with porting SDL to new QNX7 platform. 
 
+### Provide Ability for automated testing 
 
-### Provide Ability for automated testing : 
-
-Existing tool [sdl_atf](https://github.com/smartdevicelink/sdl_atf) and 
+Existing automated testing tool [sdl_atf](https://github.com/smartdevicelink/sdl_atf) and 
 [scripts](https://github.com/smartdevicelink/sdl_atf_test_scripts)
-for automated testing should be used for checking existing SDL functionality on new_platform.
+should be used for checking SDL functionality on the new platform.
 
 #### Modification in sdl_atf
 
-sdl_atf tool should be executed on host workstation, but SDL will be executed, on remote virtual QNX7 workstation. 
+sdl_atf tool should be executed on host workstation, but SDL will be executed on remote virtual QNX7 workstation. 
 
-For support remote automated testing of SDL, should implemented following proposal https://github.com/LuxoftAKutsan/sdl_evolution/blob/sdl_watchdog/proposals/nnn-atf-sdl-watchdog-service.md 
+For support remote automated testing of SDL, the following proposal should be implemented:  https://github.com/LuxoftAKutsan/sdl_evolution/blob/sdl_watchdog/proposals/nnn-atf-sdl-watchdog-service.md 
 
 #### Modification in test scripts
 
-Some scripts should be modified to use sdl on remote workstation. 
-All operations with sdl files ( hmi_capabilities, preloaded_pt, etc ...) 
-should be covered with wrappers that support either local or remote execution. 
+Some scripts should be modified to use sdl on remote workstation.  
+All operations with sdl files ( hmi_capabilities, preloaded_pt, etc ...) should be covered with wrappers that support either local or remote execution. 
 
-### Automated transport testing :
+### Automated transport testing
 
 ATF now supports only TCP transport. 
-For automated testing SDL via Bluetooth or USB, should be implemented following proposal.
+For automated testing SDL via Bluetooth or USB, the following proposal should be implemented.
 
 ## Potential downsides
 
@@ -85,7 +81,7 @@ N/A
 
 ## Impact on existing code
 
-SDL core will be modified in platform specific places. 2 Additional transport adapters will be added. 
+SDL core will be modified in platform specific places. Two additional transport adapters will be added. 
 
 ATF will be reworked to support remote sdl testing.
 
@@ -93,6 +89,6 @@ ATF will be reworked to support Bluetooth and USB testing.
 
 ## Alternatives considered
 
- 1. Do not create Bluetooth and USB transport adapters for QNX. 
-This transport adapters will not be used for real OEMs, the only place to use them - virtual x85 QNX7 workstation. 
-But creating and supporting this adapters will help to keep SDL components independent and may be an example for OEM manufactures how to create their own transport adapter
+Do not create Bluetooth and USB transport adapters for QNX.  
+These transport adapters will not be used for real OEMs, the only place to use them is virtual x85 QNX7 workstation. 
+But creating and supporting these adapters will help to keep SDL components independent and could be an example for OEM manufactures how to create their own transport adapters.
