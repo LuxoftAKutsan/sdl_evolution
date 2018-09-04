@@ -1,4 +1,4 @@
-# Feature name
+# Porting SDL to QNX700 x86 platform
 
 * Proposal: [SDL-NNNN](nnnn-sdl_on_qnx_700.md)
 * Author: [Alexander Kutsan](https://github.com/LuxoftAKutsan)
