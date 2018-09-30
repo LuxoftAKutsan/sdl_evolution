@@ -68,10 +68,7 @@ In case OEM requires additional functionality, relay server API may be extended.
 
 ATF should use this API for sending/receiving data as HMI side.
 
-
 Remote connection as Mobile side may be done in scope of following proposal : [ATF support of additional transports (BT and USB)](https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0126-atf-additional-transports.md), or in case of using WiFi (TCP) transport - no additional implementation required. 
-
-
 
 ## Potential downsides
 
@@ -80,7 +77,6 @@ N/A
 ## Impact on existing code
 
 Impacts only Automated test framework code. 
-
 
 ## Alternatives considered
 
