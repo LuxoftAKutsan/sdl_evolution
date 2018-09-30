@@ -26,7 +26,7 @@ Create Remote ATF Adapter as separate application that will be executed on the s
 ATF will use Remote ATF Adapter as a relay for sending data to SDL via HMI connection. 
 Remote ATF Adapter may implement any local transport that is used for HMI-SDL connection on specific OEM hardware, but it will provide TCP for ATF and open source ATF will be used. 
 
-![Remote ATF Adapter](/assets/proposals/nnnn-hmi-relay/HMIReleyServer.png)
+![Remote ATF Adapter](/assets/proposals/nnnn-hmi-relay/ATFRemoteAdapter.png)
 
 Remote ATF Adapter should provide folowing functionality :
 
