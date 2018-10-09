@@ -7,12 +7,12 @@
 
 ## Introduction
 
-This proposal is about porting SDL to Automotive Grade Linux (AGL) x86 platform and automated testing in this platform
+This proposal is about porting SDL to Automotive Grade Linux (AGL) x86 platform and automated testing on this platform.
 
 ## Motivation
 
-Automotive Grade Linux (AGL) is new perspective opensource Linux distributive for automotive industry.
-Most of auto supliers decalred support of AGL. 
+Automotive Grade Linux (AGL) is new perspective opensource Linux distributive for automotive industry.  
+Most of auto suppliers declared support of AGL.  
 SDL is Unix compatible system and should guarantee ability to use it on AGL. 
 
 ## Proposed solution
@@ -21,7 +21,7 @@ Add to list of compatible systems : Automotive Grage Linux.
 
 ### Compilation
 
-After implementation of **Porting SDL to QNX700 q86 platform** proposal new target system may be added just with creagin additional cmake toolchain file.
+After implementation of **Porting SDL to QNX700 q86 platform** proposal new target system may be added just with creating additional cmake toolchain file.
 
 #### 3rd party libraries for AGL
 
@@ -35,7 +35,7 @@ All third party libraries compiled within SDL should be configured for AGL(x86):
 
 ### Runtime SDL dependencies  
 
-SDL has folowing runtime dependencies : 
+SDL has the following runtime dependencies: 
 
 ```
 $ ldd smartDeviceLink
@@ -58,7 +58,7 @@ $ ldd smartDeviceLink
     libcrypt.so.1 => /lib/x86_64-linux-gnu/libcrypt.so.1 (0x00007fb77b882000)
 ```
 
-This libraries should be ported and preinstalled on the distribution of of AGL linux before running SDL. 
+These libraries should be ported and preinstalled on the distribution of of AGL linux before running SDL. 
 
 ### Automated testing 
 
@@ -70,7 +70,7 @@ should be used for checking SDL functionality on the new platform.
 
 sdl_atf tool should be executed on host workstation, but SDL will be executed on remote virtual AGL workstation. 
 
-For support remote automated testing of SDL, the following proposal should be implemented:  https://github.com/LuxoftAKutsan/sdl_evolution/blob/sdl_watchdog/proposals/nnn-atf-sdl-watchdog-service.md 
+For supporting remote automated testing of SDL, the following proposal should be implemented:  https://github.com/LuxoftAKutsan/sdl_evolution/blob/sdl_watchdog/proposals/nnn-atf-sdl-watchdog-service.md 
 
 #### Modification in test scripts
 
