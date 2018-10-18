@@ -1,6 +1,6 @@
 # HTTP App service 
 
-* Proposal: [SDL-0168](nnnn-http-app-service.md)
+* Proposal: [NNNN](nnnn-http-app-service.md)
 * Author: [Alexander Kutsan](https://github.com/LuxoftAKutsan)
 * Status: **Awaiting review**
 * Impacted Platforms: [Core]
