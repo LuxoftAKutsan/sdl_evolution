@@ -1,4 +1,4 @@
-# RPC design refactoring
+# Send permissions within registration
 
 * Proposal: [SDL-NNNN](nnnn-send_permissions_within_app_register.md)
 * Author: [Alexander Kutsan](https://github.com/LuxoftAKutsan)
