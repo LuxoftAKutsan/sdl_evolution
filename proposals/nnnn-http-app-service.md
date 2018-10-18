@@ -8,7 +8,7 @@
 ## Introduction
 
 Create for AppServices additional service type : HTTP
-
+With HTTPS connection 
 ## Motivation
 
 In case if cellular data in vehicle is not available but it required for Policies, SDL may perform HTTP request via HTTP App service. 
