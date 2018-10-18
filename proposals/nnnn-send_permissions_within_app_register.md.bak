@@ -30,7 +30,7 @@ Proposed to Add changes to `RegisterAppInterfaceRequest`
 ```
  <function name="RegisterAppInterface" functionID="RegisterAppInterfaceID" messagetype="request" since="1.0">
      <param name="app_policies" type="String" mandatory="true" since="N.N">
-            <description>Encrypted Application Permissions</description>
+            <description>Excrypted Application Permissions</description>
      </param>
 ```
 
@@ -39,7 +39,7 @@ Proposed to Add changes to `RegisterAppInterfaceRequest`
 
 The flow within implementation of proposal : https://github.com/LuxoftAKutsan/sdl_evolution/blob/policy_direct_connection/proposals/nnnn-policy_server_direct_cellular_connection.md 
 
-![Registration with sending Application Policies](../assets/proposals/nnnn-send_permissions_within_app_register/register_with_policies.png)
+![Registration with sending Appllication Policies](../assets/proposals/nnnn-send_permissions_within_app_register/register_with_policies.png)
 
  
 ## Potential downsides
@@ -48,7 +48,7 @@ The flow within implementation of proposal : https://github.com/LuxoftAKutsan/sd
 
 ## Impact on existing code
 
- Will affect sdl_core and policies
+ Will affect sdl_core and policices
 
 
 ## Alternatives considered
