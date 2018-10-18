@@ -1,15 +1,15 @@
 # Low level non RPC application services 
 
-* Proposal: [SDL-0168](nnnn-http-app-service.md)
+* Proposal: [NNNN](nnnn-http-app-service.md)
 * Author: [Alexander Kutsan](https://github.com/LuxoftAKutsan)
-* Status: **Reviewing**
+* Status: **Awaiting Review**
 * Impacted Platforms: [Core]
 
 ## Introduction
 
-Provide for application ability to register own non RPC services that may handle arbitary data. 
+Provide ability for application to register own non RPC services that may handle arbitary data. 
 
-Communication between SDL and mobile consist of Different levels:
+Communication between SDL and mobile consists of different levels:
  
  1. Transport level
  2. Protocol level
