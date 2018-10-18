@@ -2,18 +2,18 @@
 
 * Proposal: [SDL-0168](nnnn-split_policies.md)
 * Author: [Alexander Kutsan](https://github.com/LuxoftAKutsan)
-* Status: **Reviewing**
+* Status: **Awaiting review**
 * Impacted Platforms: [Core]
 
 ## Introduction
 
-Extract data not related to policies from polcy table.
+Extract data not related to policies from policy table.
 
 Data :
  - consumer friendly messages
  - usage statistics
 
-This information has no influence to application and device restrictions. So it could be done separate logical data bases.
+This information has no influence to application and device restrictions. Therefore separate logical data bases could be used.
 
 ## Motivation
 
