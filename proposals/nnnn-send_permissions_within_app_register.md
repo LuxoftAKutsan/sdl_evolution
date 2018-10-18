@@ -2,7 +2,7 @@
 
 * Proposal: [SDL-NNNN](nnnn-send_permissions_within_app_register.md)
 * Author: [Alexander Kutsan](https://github.com/LuxoftAKutsan)
-* Status: **Accepted with Revisions**
+* Status: **In review**
 * Impacted Platforms: [Core]
 
 ## Introduction
