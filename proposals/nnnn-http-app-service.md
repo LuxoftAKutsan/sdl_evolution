@@ -7,11 +7,11 @@
 
 ## Introduction
 
-Create for AppServices additional service type : HTTP
-With HTTPS connection 
+Create additional service type : HTTP with HTTPS connection for AppServices 
+
 ## Motivation
 
-In case if cellular data in vehicle is not available but it required for Policies, SDL may perform HTTP request via HTTP App service. 
+In case if in-vehicle cellular data is not available but it's required for Policies, SDL may perform HTTP request via HTTP App service. 
 
 Robust internet connection required for :
  - Policy update
@@ -19,7 +19,7 @@ Robust internet connection required for :
  - Vehicle status monitoring
  - Emergency event 
 
-SDL should provide internet connection through mobile within HTTP service in case if in vehicle cellular is down.
+SDL should provide internet connection through mobile within HTTP service in case if in-vehicle cellular connection is down.
 
 ## Proposed solution
 ![New design approach](../assets/proposals/nnnn-split_policies/new_design.png)
