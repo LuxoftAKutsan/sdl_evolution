@@ -6,26 +6,22 @@
 * Impacted Platforms: [Core]
 
 ## Introduction
-
 Application may send required policies within its registration. 
-So SDL will not have to perform Policy table Update after each app registration.
-
-
+So SDL will not have to perform Policy Table Update after each app registration.
 
 ## Motivation
-
-This will avoid mandatory policy update right after new application registration. 
-Will reduce amount of data that SDL will exchange with Policy Server.
-
-Resolved Problems with the approach :
+This approach resolves the following issues:
 
     SDL requires Policy Update after each registration
     Big amount of data should be transferred for policy update 
     Cellular connection may be not stable and not permanent.
 
 ## Proposed solution
+The proposed solution allows to avoid mandatory Policy Table Update right after a new application registration.  
+It will reduce amount of data that SDL will exchange with Policy Server.
 
-Proposed to Add changes to `RegisterAppInterfaceRequest` 
+### Detailed design
+Add new `app_policies` parameter to `RegisterAppInterfaceRequest` 
 
 ```
  <function name="RegisterAppInterface" functionID="RegisterAppInterfaceID" messagetype="request" since="1.0">
@@ -44,12 +40,13 @@ The flow within implementation of proposal : https://github.com/LuxoftAKutsan/sd
  
 ## Potential downsides
 
- - Increase amount of data in RegisterAppInterface
+This increases amount of data in RegisterAppInterface.
 
 ## Impact on existing code
 
- Will affect sdl_core and policies
+This proposal will affect sdl_core and policies.
 
 
 ## Alternatives considered
- 
+
+No alternatives considered. 
