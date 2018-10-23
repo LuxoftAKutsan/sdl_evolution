@@ -70,7 +70,7 @@ should be used for checking SDL functionality on the new platform.
 
 sdl_atf tool should be executed on host workstation, but SDL will be executed on remote virtual AGL workstation. 
 
-For supporting remote automated testing of SDL, the following proposal should be implemented:  https://github.com/LuxoftAKutsan/sdl_evolution/blob/sdl_watchdog/proposals/nnn-atf-sdl-watchdog-service.md 
+For supporting remote automated testing of SDL, the following proposal should be implemented: https://github.com/LuxoftAKutsan/sdl_evolution/blob/remote_atf_proxy/proposals/nnnn-remote_atf_testing.md
 
 #### Modification in test scripts
 
