@@ -21,6 +21,8 @@ So application will not be required to implement and to use RPC for communicatio
  
 ## Motivation
 
+
+
 ### Motivation for OEM producers
 SDL RPC Service (using MOBILE_API) is rather complicated and huge for support.
 Also it adds a lot of additional requirements for both OEM provider and application developer. 
@@ -30,11 +32,6 @@ Any modification of RPC service requires experience in SDL core.
 Any modification of RPC service add bit possibility of regression to existing open source SDL functionality.
 
 Adding additionnal custom service support with pluguble system will provide ability for seamless integration of proprietary features using SmartDeviceLink for OEM producers 
-
-
-### Motivation for application developers 
-
-SDL should provide ability to use only [SmartDeviceink Protocol](https://github.com/smartdevicelink/protocol_spec) as protocol for data transfer. 
 
 OEM provider can use raw connection for custom services, but SDLP(SmartDeviceink Protocol) is better.
 Benefits of SDLP usage described below. 
@@ -47,12 +44,16 @@ SDLP guarantees:
  - Malformed messages filtering
  - Messages encryption
 
-OEM may create custom service as plugin for extracting proprietary logic without modification SDL core code.
+### Motivation for application developers 
 
-Add additional service OpenSource SDL can implement layer of for providing RESTfull API for web applicaitons that will work with SDL via CloudTransportAdapter.
+
+SDL should provide ability to use only [SmartDeviceink Protocol](https://github.com/smartdevicelink/protocol_spec) as protocol for data transfer. 
+
+SDL should provide RESTfull API for in-car resources that will be used by web applications that will connect to SDL via cloud transport adapter. 
+
 
 ## Proposed solution
-![New design approach](../assets/proposals/nnnn-split_policies/new_design.png)
+
 
 ## Potential downsides
 
