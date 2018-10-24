@@ -26,6 +26,7 @@ Also it adds a lot of additional requirements for both OEM provider and applicat
 
 OEM provider may need some custom communication with mobile application and RPC usage is too complicated and overloaded.
 
+
 SDL should provide ability to use only [SmartDeviceink Protocol](https://github.com/smartdevicelink/protocol_spec) as protocol for data transfer. 
 
 OEM provider can use raw connection for custom services, but SDLP(SmartDeviceink Protocol) is better.
