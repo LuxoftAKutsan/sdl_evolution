@@ -41,6 +41,7 @@ SDLP guarantees:
 
 OEM may create custom service as plugin for extracting proprietary logic without modification SDL core code.
 
+Add additional service OpenSource SDL can implement layer of for providing RESTfull API for web applicaitons that will work with SDL via CloudTransportAdapter.
 
 ## Proposed solution
 ![New design approach](../assets/proposals/nnnn-split_policies/new_design.png)
