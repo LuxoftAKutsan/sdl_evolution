@@ -22,14 +22,16 @@ So if application will not be required to implement and to use RPC for communica
 ## Motivation
 
 SDL RPC Service (using MOBILE_API) is rather complicated and huge for support.
-Also it add a lot of additional requirenments both for OEM provider and mobile developer. 
+Also it adds a lot of additional requirements for both OEM provider and mobile developer. 
 
-OEM provider may need some custom communication with mobile applicaiton and using RPC is to complicated and overweighted.
+OEM provider may need some custom communication with mobile application and RPC usage is too complicated and overloaded.
 
 SDL should provide ability to use only [SmartDeviceink Protocol](https://github.com/smartdevicelink/protocol_spec) as protocol for data transfer. 
 
-OEM provide can use raw connection for custom services, but SDLP is better.
-SDLP will guarantee :
+OEM provider can use raw connection for custom services, but SDLP(SmartDeviceink Protocol) is better.
+Benefits of SDLP usage described below. 
+
+SDLP guarantees:
  - messages uniquness 
  - delivery guaratees.
  - Keep connection/session alive (heard beat)
