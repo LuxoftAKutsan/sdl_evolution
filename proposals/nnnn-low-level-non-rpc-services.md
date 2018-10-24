@@ -18,7 +18,7 @@ Communication between SDL and mobile consists of different levels:
 SmartDeviceLink Protocol may also transfer arbitary data. 
 So application will not be required to implement and to use RPC for communication with SDL for some use cases. 
 
- 
+
 ## Motivation
 
 
@@ -33,7 +33,7 @@ Any modification of RPC service add bit possibility of regression to existing op
 
 Adding additionnal custom service support with pluguble system will provide ability for seamless integration of proprietary features using SmartDeviceLink for OEM producers 
 
-OEM provider can use raw connection for custom services, but SDLP(SmartDeviceink Protocol) is better.
+OEM provider can use raw connection for custom services, but SDLP (SmartDeviceink Protocol) is better.
 Benefits of SDLP usage described below. 
 
 SDLP guarantees:
@@ -50,7 +50,6 @@ SDLP guarantees:
 SDL should provide ability to use only [SmartDeviceink Protocol](https://github.com/smartdevicelink/protocol_spec) as protocol for data transfer. 
 
 SDL should provide RESTfull API for in-car resources that will be used by web applications that will connect to SDL via cloud transport adapter. 
-
 
 ## Proposed solution
 
