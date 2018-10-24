@@ -16,16 +16,23 @@ Communication between SDL and mobile consists of different levels:
  3. RPC/Streaming/Bulk level
 
 SmartDeviceLink Protocol may also transfer arbitary data. 
-So if application will not be required to implement and to use RPC for communication with SDL for some use cases. 
+So application will not be required to implement and to use RPC for communication with SDL for some use cases. 
 
  
 ## Motivation
 
+### Motivation for OEM producers
 SDL RPC Service (using MOBILE_API) is rather complicated and huge for support.
 Also it adds a lot of additional requirements for both OEM provider and application developer. 
 
 OEM provider may need some custom communication with mobile application and RPC usage is too complicated and overloaded.
+Any modification of RPC service requires experience in SDL core. 
+Any modification of RPC service add bit possibility of regression to existing open source SDL functionality.
 
+Adding additionnal custom service support with pluguble system will provide ability for seamless integration of proprietary features using SmartDeviceLink for OEM producers 
+
+
+### Motivation for application developers 
 
 SDL should provide ability to use only [SmartDeviceink Protocol](https://github.com/smartdevicelink/protocol_spec) as protocol for data transfer. 
 
