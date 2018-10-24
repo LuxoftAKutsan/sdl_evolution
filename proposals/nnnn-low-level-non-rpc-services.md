@@ -29,17 +29,17 @@ Also it adds a lot of additional requirements for both OEM provider and applicat
 
 OEM provider may need some custom communication with mobile application and RPC usage is too complicated and overloaded.
 Any modification of RPC service requires experience in SDL core. 
-Any modification of RPC service add bit possibility of regression to existing open source SDL functionality.
+Any modification of RPC service adds big possibility of regression to existing open source SDL functionality.
 
-Adding additionnal custom service support with pluguble system will provide ability for seamless integration of proprietary features using SmartDeviceLink for OEM producers 
+Adding additional custom service support with plugin extensible system will provide ability for seamless integration of proprietary features using SmartDeviceLink for OEM producers 
 
-OEM provider can use raw connection for custom services, but SDLP (SmartDeviceink Protocol) is better.
+OEM provider can use raw data exchange for custom services, but SDLP (SmartDeviceink Protocol) is better.
 Benefits of SDLP usage described below. 
 
 SDLP guarantees:
- - messages uniquness 
- - delivery guaratees.
- - Keep connection/session alive (heard beat)
+ - Messages uniquness 
+ - Delivery guaratee.
+ - Keep connection/session alive (heart beat)
  - Session multiplexing
  - Malformed messages filtering
  - Messages encryption
