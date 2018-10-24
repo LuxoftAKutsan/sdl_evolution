@@ -37,7 +37,7 @@ OEM provider can use raw data exchange for custom services, but SDLP (SmartDevic
 Benefits of SDLP usage described below. 
 
 SDLP guarantees:
- - Messages uniquness 
+ - Messages uniqueness 
  - Delivery guaratee.
  - Keep connection/session alive (heart beat)
  - Session multiplexing
