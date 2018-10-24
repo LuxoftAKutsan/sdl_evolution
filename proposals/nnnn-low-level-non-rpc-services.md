@@ -21,7 +21,7 @@ So if application will not be required to implement and to use RPC for communica
  
 ## Motivation
 
-RPC is rather complicated and huge for implementation. 
+SDL RPC Service (using MOBILE_API) is rather complicated and huge for support.
 Also it add a lot of additional requirenments both for OEM provider and mobile developer. 
 
 OEM provider may need some custom communication with mobile applicaiton and using RPC is to complicated and overweighted.
