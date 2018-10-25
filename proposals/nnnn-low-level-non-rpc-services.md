@@ -72,6 +72,7 @@ List of proposed services :
 REST service will be useful for Web applications that usualy use REST paradigm against RPC for communications.
 
 ![Rest Service](../assets/proposals/nnnn-low-level-non-rpc-services/rest_service.png)
+![New design approach](../assets/proposals/0168-rpc-design-refactoring/new_design.png)
 
 MOBILE_API will be partialy cinverted to REST API:
 
