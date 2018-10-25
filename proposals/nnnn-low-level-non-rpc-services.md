@@ -51,7 +51,86 @@ SDL should provide ability to use only [SmartDeviceink Protocol](https://github.
 
 SDL should provide RESTfull API for in-car resources that will be used by web applications that will connect to SDL via cloud transport adapter. 
 
+**Cloud transport adapter** proposal opens huge horisond of pocibiities to use SDL by Web Applications.
+
+Web application can be created on any platform (PHP, python, JavaScript), and there is no abiity to use Proxy library in their code.
+
+RPC is not usual technology in web world, and requirenment MOBILE API over RPC implementation will be big obstacle for WebApplication to support SDL.
+
 ## Proposed solution
+
+Implement pluguble structure of protocol handler that Will load supported services as plugins.
+
+List of proposed services :
+ - RPCService
+ - MediaService
+ - REST service
+
+
+### REST service
+
+REST service will be useful for Web applications that usualy use REST paradigm against RPC for communications.
+
+![Rest Service](../assets/proposals/nnnn-low-level-non-rpc-services/rest_service.png)
+
+MOBILE_API will be partialy cinverted to REST API:
+
+### SDL resources in REST API:
+
+#### Vehicle data
+For vehille infomation folowing resoirces available.
+
+ - `/vehicle_data/speed`
+ - `/vehicle_data/rpm`
+ - `/vehicle_data/fuellevel`
+ - `/vehicle_data/fuel_state`
+ - `/vehicle_data/fuel_consumption`
+ - `/vehicle_data/extern_temp`
+ - `/vehicle_data/turn_signal`
+ - `/vehicle_data/prndl`
+ - `/vehicle_data/tire_pressure`
+ - `/vehicle_data/odometer`
+ - `/vehicle_data/belt_status`
+ - `/vehicle_data/body_info`
+ - `/vehicle_data/device_status`
+ - `/vehicle_data/ecall_info`
+ - `/vehicle_data/device_status`
+ ...
+
+`GET` request for each the resource is equvalent to `GetVehicleData` RPC request.
+
+#### Commands 
+ Commands should provide information about registered commands for the application
+
+ - `/commands`
+
+ `POST` request for `/commands` the resource is equvalent to `AddCommand` RPC request.
+
+
+### TBD : List all SDL resources in RESTfull style
+
+
+### Protocol implementation
+
+SmartDevicelink Protocol can be implemented with [Kaitai Struct](https://kaitai.io/) technology.
+It will provide ability for app developers to work with SDLP using any programming language.
+
+[Kaitai Struct] will generate code for constructing and parsing SDL packets for :
+ - smartDeviceLinkCore
+ - AndroidProxy
+ - IOs proxy
+ - Automated Test framework
+ - Web application that works with SDL
+
+![Kaitai Struct](../assets/proposals/nnnn-low-level-non-rpc-services/kaitai.png)
+
+
+### Custom Services
+
+Application may register on SDL custom service for data processing. 
+
+SDL wil share this services with other registered applications. 
+And transmit data across applications.
 
 
 ## Potential downsides
