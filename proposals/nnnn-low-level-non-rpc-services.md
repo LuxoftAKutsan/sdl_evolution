@@ -7,7 +7,7 @@
 
 ## Introduction
 
-This proposal is to provide ability for mobile application to register own non RPC services that may handle arbitrary data. 
+This proposal is to provide ability for mobile applications to register their own non-RPC services that may handle arbitrary data. 
 
 Communication between SDL and mobile consists of different levels:
  
@@ -16,8 +16,7 @@ Communication between SDL and mobile consists of different levels:
  3. RPC/Streaming/Bulk level
 
 SmartDeviceLink Protocol may also transfer arbitrary data. 
-So application will not require to implement and to use RPC for communication with SDL for some use cases. 
-
+So application will not require to implement and to use RPCs for communication with SDL for some use cases. 
 
 ## Motivation
 
@@ -31,21 +30,19 @@ Any modification of RPC service adds big possibility of regression to existing o
 
 Adding additional custom service support with plugin extensible system will provide ability for seamless integration of proprietary features using SmartDeviceLink for OEM producers 
 
-OEM provider can use raw data exchange for custom services, but SDLP (SmartDeviceink Protocol) is better.
-Benefits of SDLP usage described below. 
+OEM provider can use raw data exchange for custom services, but SDLP (SmartDeviceLink Protocol) is better. Benefits of SDLP usage are listed below.
 
 SDLP guarantees:
  - Messages uniqueness 
- - Delivery guaratee
- - Keep connection/session alive (heart beat)
+ - Messages delivery
+ - Keeping connection/session alive (heart beat)
  - Session multiplexing
  - Malformed messages filtering
  - Messages encryption
 
 ### Motivation for application developers 
 
-
-SDL should provide ability to use only [SmartDeviceink Protocol](https://github.com/smartdevicelink/protocol_spec) as protocol for data transfer. 
+SDL should provide the ability to use only [SmartDeviceink Protocol](https://github.com/smartdevicelink/protocol_spec) as protocol for data transfer. 
 
 SDL should provide RESTfull API for in-car resources that will be used by web applications that will connect to SDL via cloud transport adapter. 
 
@@ -53,7 +50,7 @@ SDL should provide RESTfull API for in-car resources that will be used by web ap
 
 Web application can be created on any platform (PHP, python, JavaScript), and there is no ability to use Proxy library in their code.
 
-RPC is not usual technology in web world, and requirement MOBILE API over RPC implementation will be big obstacle for WebApplication to support SDL.
+RPC is not a common technology in web world, and requirement MOBILE API over RPC implementation will be big obstacle for web application to support SDL.
 
 ## Proposed solution
 
@@ -67,11 +64,11 @@ List of proposed services :
 
 ### REST service
 
-REST service will be useful for Web applications that usually use REST paradigm against RPC for communications.
+REST service will be useful for web applications that usually use REST paradigm against RPC for communications.
 
 ![Rest Service](../assets/proposals/nnnn-low-level-non-rpc-services/rest_serfcei.png)
 
-MOBILE_API will be partially converted to REST API:
+MOBILE_API will be partially converted to REST API.
 
 ### SDL resources in REST API:
 
@@ -107,17 +104,16 @@ For vehicle information the following resources are available.
 
 ### TBD : List all SDL resources in RESTfull style
 
-
 ### Protocol implementation
 
 SmartDeviceLink Protocol can be implemented with [Kaitai Struct](https://kaitai.io/) technology.
 It will provide ability for app developers to work with SDLP using any programming language.
 
 [Kaitai Struct] will generate code for constructing and parsing SDL packets for:
- - smartDeviceLinkCore
+ - SmartDeviceLinkCore
  - AndroidProxy
- - IOs proxy
- - Automated Test framework
+ - iOS proxy
+ - Automated Test Framework
  - Web application that works with SDL
 
 ![Kaitai Struct](../assets/proposals/nnnn-low-level-non-rpc-services/kaitai.png)
@@ -131,7 +127,9 @@ SDL will share these services with other registered applications.
 And transmit data across applications.
 
 ## Potential downsides
+N/A
 
 ## Impact on existing code
 
 ## Alternatives considered
+N/A
