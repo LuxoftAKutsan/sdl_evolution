@@ -23,7 +23,7 @@ The proposed solution resolves the following issues:
 
 ## Proposed solution
 
-![New design approach](../assets/proposals/nnnn-split_policies/Separate logical structure of policies.png)
+![New design approach](../assets/proposals/nnnn-split_policies/Separate\ logical\ structure\ of\ policies.png)
 
 
 
