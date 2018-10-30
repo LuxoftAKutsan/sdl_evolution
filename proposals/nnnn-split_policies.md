@@ -106,15 +106,29 @@ For the response SDL will expect folowing structure of service information Updat
 TODO: describe policy update structure
 ```
 
-![New design approach](../assets/proposals/nnnn-split_policies/Separate\ logical\ structure\ of\ policies.png)
+![New design approach](../assets/proposals/nnnn-split_policies/split_policy.png)
 
 
 ### Internal arhitecture 
 
 SDL will extract Service information and usage statistics from original policy data base and Policy Component.
 
+
+#### Use LastState for policy storage
+
+Communication between SDL and PolicyServer established via jsons. There is no reason to use SQL for internal policy storage.
+SDL should use Last state component for storing all information related to :
+
+ - Resumption
+ - Policies
+ - Usage Statistics
+ - Service Information
+
+`LastState` component is responcible for apropriate storing\loading data and manage multithreading access.  
+
 Hight Level design: 
 
+![Hight Level design](../assets/proposals/nnnn-split_policies/internal_design.png)
 
 
 ## Potential downsides

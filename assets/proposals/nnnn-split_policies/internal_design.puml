@@ -1,0 +1,31 @@
+@startuml
+
+title Split Policies - Internal design
+
+
+class ApplicationManager
+
+class PolicyManager
+class PolicyHandler
+class StatisticManager
+class ServiceInfoManager
+
+
+ApplicationManager -down-* PolicyHandler
+PolicyHandler -left-* PolicyManager
+PolicyHandler -left-* PolicyManagerExt
+
+
+ApplicationManager --* StatisticManager
+ApplicationManager --* ServiceInfoManager
+
+class LastState
+
+PolicyManager --o LastState
+PolicyManagerExt --o LastState
+StatisticManager --o LastState
+ServiceInfoManager --o LastState
+Resumption -o LastState
+
+@enduml
+
