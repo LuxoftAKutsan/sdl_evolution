@@ -1,6 +1,6 @@
 # Split Policies into logically separated data bases 
 
-* Proposal: [NNNN](nnnn-split_policies.md)
+* Proposal: [SDL-NNNN](nnnn-split_policies.md)
 * Author: [Alexander Kutsan](https://github.com/LuxoftAKutsan)
 * Status: **Awaiting review**
 * Impacted Platforms: [Core]
