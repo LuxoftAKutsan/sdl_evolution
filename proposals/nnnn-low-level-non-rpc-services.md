@@ -1,13 +1,13 @@
 # Low level non RPC application services 
 
-* Proposal: [NNNN](nnnn-http-app-service.md)
+* Proposal: [SDL-NNNN](nnnn-http-app-service.md)
 * Author: [Alexander Kutsan](https://github.com/LuxoftAKutsan)
 * Status: **Awaiting Review**
 * Impacted Platforms: [Core]
 
 ## Introduction
 
-Provide ability for application to register own non RPC services that may handle arbitary data. 
+This proposal is to provide ability for mobile application to register own non RPC services that may handle arbitrary data. 
 
 Communication between SDL and mobile consists of different levels:
  
@@ -15,17 +15,15 @@ Communication between SDL and mobile consists of different levels:
  2. Protocol level
  3. RPC/Streaming/Bulk level
 
-SmartDeviceLink Protocol may also transfer arbitary data. 
-So application will not be required to implement and to use RPC for communication with SDL for some use cases. 
+SmartDeviceLink Protocol may also transfer arbitrary data. 
+So application will not require to implement and to use RPC for communication with SDL for some use cases. 
 
 
 ## Motivation
 
-
-
 ### Motivation for OEM producers
 SDL RPC Service (using MOBILE_API) is rather complicated and huge for support.
-Also it adds a lot of additional requirements for both OEM provider and application developer. 
+Also, it adds a lot of requirements for both OEM provider and application developer. 
 
 OEM provider may need some custom communication with mobile application and RPC usage is too complicated and overloaded.
 Any modification of RPC service requires experience in SDL core. 
@@ -38,7 +36,7 @@ Benefits of SDLP usage described below.
 
 SDLP guarantees:
  - Messages uniqueness 
- - Delivery guaratee.
+ - Delivery guaratee
  - Keep connection/session alive (heart beat)
  - Session multiplexing
  - Malformed messages filtering
@@ -51,15 +49,15 @@ SDL should provide ability to use only [SmartDeviceink Protocol](https://github.
 
 SDL should provide RESTfull API for in-car resources that will be used by web applications that will connect to SDL via cloud transport adapter. 
 
-**Cloud transport adapter** proposal opens huge horisond of pocibiities to use SDL by Web Applications.
+**Cloud transport adapter** proposal opens up better horizons for using SDL by Web Applications.
 
-Web application can be created on any platform (PHP, python, JavaScript), and there is no abiity to use Proxy library in their code.
+Web application can be created on any platform (PHP, python, JavaScript), and there is no ability to use Proxy library in their code.
 
-RPC is not usual technology in web world, and requirenment MOBILE API over RPC implementation will be big obstacle for WebApplication to support SDL.
+RPC is not usual technology in web world, and requirement MOBILE API over RPC implementation will be big obstacle for WebApplication to support SDL.
 
 ## Proposed solution
 
-Implement pluguble structure of protocol handler that Will load supported services as plugins.
+Implement pluggable structure of protocol handler that will load supported services as plugins.
 
 List of proposed services :
  - RPCService
@@ -69,16 +67,16 @@ List of proposed services :
 
 ### REST service
 
-REST service will be useful for Web applications that usualy use REST paradigm against RPC for communications.
+REST service will be useful for Web applications that usually use REST paradigm against RPC for communications.
 
 ![Rest Service](../assets/proposals/nnnn-low-level-non-rpc-services/rest_serfcei.png)
 
-MOBILE_API will be partialy cinverted to REST API:
+MOBILE_API will be partially converted to REST API:
 
 ### SDL resources in REST API:
 
 #### Vehicle data
-For vehille infomation folowing resoirces available.
+For vehicle information the following resources are available.
 
  - `/vehicle_data/speed`
  - `/vehicle_data/rpm`
@@ -97,14 +95,14 @@ For vehille infomation folowing resoirces available.
  - `/vehicle_data/device_status`
  ...
 
-`GET` request for each the resource is equvalent to `GetVehicleData` RPC request.
+`GET` request for each the resource is equivalent  to `GetVehicleData` RPC request.
 
 #### Commands 
  Commands should provide information about registered commands for the application
 
  - `/commands`
 
- `POST` request for `/commands` the resource is equvalent to `AddCommand` RPC request.
+ `POST` request for `/commands` the resource is equivalent to `AddCommand` RPC request.
 
 
 ### TBD : List all SDL resources in RESTfull style
@@ -112,10 +110,10 @@ For vehille infomation folowing resoirces available.
 
 ### Protocol implementation
 
-SmartDevicelink Protocol can be implemented with [Kaitai Struct](https://kaitai.io/) technology.
+SmartDeviceLink Protocol can be implemented with [Kaitai Struct](https://kaitai.io/) technology.
 It will provide ability for app developers to work with SDLP using any programming language.
 
-[Kaitai Struct] will generate code for constructing and parsing SDL packets for :
+[Kaitai Struct] will generate code for constructing and parsing SDL packets for:
  - smartDeviceLinkCore
  - AndroidProxy
  - IOs proxy
@@ -129,9 +127,8 @@ It will provide ability for app developers to work with SDLP using any programmi
 
 Application may register on SDL custom service for data processing. 
 
-SDL wil share this services with other registered applications. 
+SDL will share these services with other registered applications. 
 And transmit data across applications.
-
 
 ## Potential downsides
 
