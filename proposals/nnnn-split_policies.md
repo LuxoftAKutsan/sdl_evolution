@@ -23,34 +23,33 @@ The proposed solution resolves the following issues:
 
 ## Proposed solution
 
-Split data sources to multiple data bases. Each data base should have own triggers for update. 
+Split data sources to multiple data bases. Each data base should have its own triggers for update. 
 
 ### Policy server
 
-Policy server should provide :
+Policy server should provide:
  - Application policies
  - Policy groups
- - consented devices
+ - Consented devices
 
-Trigers for update :
+Triggers for update:
  - An app registered is not listed in PT (device consented)
  - Policy Table Update in case of failed retry strategy during previous IGN_ON
- - On getting 'device consent' from the user ( aplicable to EXTERNAL_PROPRIETARY)
+ - On getting 'device consent' from the user (applicable to EXTERNAL_PROPRIETARY)
  - If PTU was requested by app from un-consented device
  - User initiates PTU request from HMI
  - OnPolicyUpdate from HMI
 
 #### Data structures 
 
-On trigger SDL will send by POST request snapshot with existing policies.
-Policy snapshot should match folowing structure:
+On trigger SDL will send by POST request snapshot with existing policies.  
+Policy snapshot should match the following structure:
 
 ```
 TODO: describe policy snapshot structure
-
 ```
 
-For the response SDL will expect folowing structure of Policy Update:
+For the response SDL will expect the following structure of Policy Update:
 
 ```
 TODO: describe policy update structure
@@ -60,7 +59,7 @@ TODO: describe policy update structure
 
 This database is about providing statistics about vehicle usage. SDL should not get any new information from this DB.
 
-Trigers for update :
+Triggers for update:
  - After "N" ignition cycles
  - After "N" kilometers
  - After "N" days
@@ -72,35 +71,33 @@ Statistics snapshot should match folowing structure:
 
 ```
 TODO: describe policy snapshot structure
-
 ```
-SDL do not expect any response from the server.
+SDL does not expect any response from the server.
 
 
 ### Service information
 
 This data source contains:
-  - user friendly message
-  - certificates
-  - policy server url's
+  - User friendly message
+  - Certificates
+  - Solicy server URLs
   
-Trigers for update :
- - current date is "24 hours prior to module's certificate expiration date"
+Triggers for update :
+ - Current date is "24 hours prior to module's certificate expiration date"
  - No "certificate" at "module_config" section
  - In case the invalid certificate exists in policies database
   
 
 #### Data structures 
 
-On trigger SDL will send by POST request snapshot with existing service infirmation.
+On trigger SDL will send by POST request snapshot with existing service information.  
 Service information snapshot should match folowing structure:
 
 ```
 TODO: describe policy snapshot structure
-
 ```
 
-For the response SDL will expect folowing structure of service information Update:
+For the response SDL will expect following structure of service information update:
 
 ```
 TODO: describe policy update structure
@@ -109,22 +106,22 @@ TODO: describe policy update structure
 ![New design approach](../assets/proposals/nnnn-split_policies/split_policy.png)
 
 
-### Internal arhitecture 
+### Internal architecture 
 
 SDL will extract Service information and usage statistics from original policy data base and Policy Component.
 
 
 #### Use LastState for policy storage
 
-Communication between SDL and PolicyServer established via jsons. There is no reason to use SQL for internal policy storage.
-SDL should use Last state component for storing all information related to :
+Communication between SDL and PolicyServer established via jsons. There is no reason to use SQL for internal policy storage.  
+SDL should use Last state component for storing all information related to:
 
  - Resumption
  - Policies
  - Usage Statistics
  - Service Information
 
-`LastState` component is responcible for apropriate storing\loading data and manage multithreading access.  
+`LastState` component is responsible for appropriate storing/loading data and managing multithreading access.  
 
 Hight Level design: 
 
@@ -132,10 +129,10 @@ Hight Level design:
 
 
 ## Potential downsides
- Possible changes in already existing Policy Servers. Should be investigaed by OEMs 
+The changes in already existing Policy Servers may be required. Should be investigaed by OEMs. 
 
 ## Impact on existing code
- Impacts on Policies in SDL.
+Impacts on Policies in SDL.
  
 ## Alternatives considered
 The only alternative would be to leave the data in PT as is, but that is judged to be a poor option.
