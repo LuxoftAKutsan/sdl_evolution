@@ -17,12 +17,15 @@ This information has no impact on application and device restrictions. Therefore
 ## Motivation
 The proposed solution resolves the following issues:
 
-    Big amount of communications for policy update
-    Policy table is big and complicated
-    Reduce frequency of policy Update
+ - Big amount of communications for policy update
+ - Policy table is big and complicated
+ - Reduce frequency of policy Update
 
 ## Proposed solution
-![New design approach](../assets/proposals/nnnn-split_policies/new_design.png)
+
+![New design approach](../assets/proposals/nnnn-split_policies/Separate logical structure of policies.png)
+
+
 
 ## Potential downsides
 N/A
