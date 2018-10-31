@@ -1,6 +1,6 @@
 # HTTP App service 
 
-* Proposal: [NNNN](nnnn-http-app-service.md)
+* Proposal: [SDL-NNNN](nnnn-http-app-service.md)
 * Author: [Alexander Kutsan](https://github.com/LuxoftAKutsan)
 * Status: **Awaiting review**
 * Impacted Platforms: [Core]
@@ -14,7 +14,7 @@ This proposal is to create additional service type HTTP with HTTPS connection fo
 In case in-vehicle cellular data is not available but it's required for Policies, SDL may perform HTTP request via HTTP AppService. 
 
 Robust internet connection is required for:
- - Policy update
+ - Policy Update
  - System updates
  - Vehicle status monitoring
  - Emergency event 
@@ -24,7 +24,7 @@ SDL should provide internet connection through mobile within HTTP service in cas
 ## Proposed solution
 
 ### API extension
-Add additional AppServiceType 
+Add a new AppServiceType 
 
 ```
 <enum name="AppServiceType">
@@ -33,7 +33,7 @@ Add additional AppServiceType
 </enum>
 ```
 
-Add folowing manifest :
+Add following manifest:
 
 ```
 <struct name="HTTPServiceManifest">
@@ -43,7 +43,7 @@ Add folowing manifest :
 	</struct>
 ```
 
-Add folowing data that service may process.
+Add following data that service may process:
 
 ```
 <struct name="HTTPServiceData">
@@ -61,7 +61,7 @@ Add folowing data that service may process.
  </enum>
  ```
  
- Extend AppServiceData with folowing parameter : 
+ Extend AppServiceData with following parameter: 
  
  ```
    <struct name="AppServiceData">
@@ -71,17 +71,17 @@ Add folowing data that service may process.
  ```
 
 ### Usage of HTTP service
-Usage of service will be performed by  calling  `GetAppServiceData` RPC. 
+Usage of the service will be performed by calling  `GetAppServiceData` RPC. 
 HTTP AppService should perform HTTP requestto url and send `GetAppServiceData` response.
 
 
 ## Potential downsides
- - SDL should trust HTTP App service. HTTP App service may replace data from server.
+SDL should trust HTTP App service. HTTP App service may replace data from server.
  
 ## Impact on existing code
- SDL core changes expected. AppService implementation extension
+SDL core changes are expected. AppService implementation extension.
  
 ## Alternatives considered
  1. Encrypt information from server. But it will limit web serveices for communication. Because web services will have to support encryption.
- 2. Avoid using RPC for communicaiton. Implement HTTP service and low level service https://github.com/LuxoftAKutsan/sdl_evolution/blob/registration_of_low_layer_non_rpc_services/proposals/nnnn-low-level-non-rpc-services.md
+ 2. Avoid using RPC for communication. Implement HTTP service and low level service https://github.com/LuxoftAKutsan/sdl_evolution/blob/registration_of_low_layer_non_rpc_services/proposals/nnnn-low-level-non-rpc-services.md
  
