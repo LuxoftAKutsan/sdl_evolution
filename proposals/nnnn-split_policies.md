@@ -9,17 +9,17 @@
 This proposal is to extract data not related to policies from Policy Table.
 
 Data :
- - consumer friendly messages
- - usage statistics
+ - Consumer friendly messages
+ - Usage statistics
 
 This information has no impact on application and device restrictions. Therefore, separate logical data bases could be used.
 
 ## Motivation
 The proposed solution resolves the following issues:
 
- - Big amount of communications for policy update
+ - Big amount of communications for Policy Update
  - Policy table is big and complicated
- - Reduce frequency of policy Update
+ - Reduce frequency of Policy Update
 
 ## Proposed solution
 
@@ -113,7 +113,7 @@ SDL will extract Service information and usage statistics from original policy d
 
 #### Use LastState for policy storage
 
-Communication between SDL and PolicyServer established via jsons. There is no reason to use SQL for internal policy storage.  
+Communication between SDL and Policy Server established via jsons. There is no reason to use SQL for internal policy storage.  
 SDL should use Last state component for storing all information related to:
 
  - Resumption
@@ -132,7 +132,7 @@ Hight Level design:
 The changes in already existing Policy Servers may be required. Should be investigaed by OEMs. 
 
 ## Impact on existing code
-Impacts on Policies in SDL.
+Impacts Policies in SDL.
  
 ## Alternatives considered
 The only alternative would be to leave the data in PT as is, but that is judged to be a poor option.
