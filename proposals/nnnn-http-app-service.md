@@ -71,8 +71,11 @@ Add following data that service may process:
  ```
 
 ### Usage of HTTP service
+
 Usage of the service will be performed by calling  `GetAppServiceData` RPC. 
 HTTP AppService should perform HTTP requestto url and send `GetAppServiceData` response.
+
+![Sequence of using HTTP App service by SDL](../assets/proposals/nnnn-http-app-service/http_service_sequence.png)
 
 
 ## Potential downsides
