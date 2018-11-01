@@ -40,7 +40,7 @@ Add following manifest:
 		<param name="httpsSupported type="Boolean" mandatory="false"/>
 		<param name="cellularConnection" type="Boolean" mandatory="false"/>
   <param name="traficLimitations" type="Boolean" mandatory="false"/>
-	</struct>
+</struct>
 ```
 
 Add following data that service may process:
