@@ -15,11 +15,19 @@ Data :
 This information has no impact on application and device restrictions. Therefore, separate logical data bases could be used.
 
 ## Motivation
-The proposed solution resolves the following issues:
 
+SDL stores in policies everything that it should retrive from OEM server. 
+
+This triggers folowing problems : 
  - Big amount of communications for Policy Update
  - Policy table is big and complicated
- - Reduce frequency of Policy Update
+ - Policy component of SDL is complicated. 
+ - Change in Policies may raize big regression. 
+ - Hight frequency of policy Updates
+
+SDL policies should be splitted to separate data bases and SDL should work with the separately. 
+It will reduce frequency of data for updates, will simplify Policy Table, Policy component. 
+Adding new data will not affect whole policy table. 
 
 ## Proposed solution
 
@@ -34,7 +42,7 @@ Policy server should provide:
 
 Triggers for update:
  - An app registered is not listed in PT (device consented)
- - Policy Table Update in case of failed retry strategy during previous IGN_ON
+       - Policy Table Update in case of failed retry strategy during previous IGN_ON
  - On getting 'device consent' from the user (applicable to EXTERNAL_PROPRIETARY)
  - If PTU was requested by app from un-consented device
  - User initiates PTU request from HMI
