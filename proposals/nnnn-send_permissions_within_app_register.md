@@ -39,7 +39,31 @@ The flow within implementation of proposal : https://github.com/LuxoftAKutsan/sd
 
 ![Registration with sending Application Policies](../assets/proposals/nnnn-send_permissions_within_app_register/register_with_policies.png)
 
- 
+### Certificates managment.
+
+SDL should regulary update certificates for decryption of application policies.
+
+Policy Table should contain certificates in `module_config` section by `certificate` key.
+
+Triggers for update certificates :
+
+   - Current date is "24 hours prior to module's certificate expiration date"
+   - No "certificate" at "module_config" section
+   - In case the invalid certificate exists in policies database
+
+# Certification of application 
+
+Application developer should provide list of MOBILE_API functions and parameters that it need for work to OEM produces.
+OEM producer will send to application developer encrypted `app_policices` string. 
+This string should be used for registration in `app_policies` parameter in `RegisterAppInterface`. 
+
+### Update policies trigger changes
+
+Policy table do no need folowing triggers for update any more:
+
+ - An app registered is not listed in PT (device consented)
+
+
 ## Potential downsides
 
 This increases amount of data in RegisterAppInterface.
