@@ -1,0 +1,32 @@
+@startuml
+
+title "HTTP AppService - Sequence Diagram"
+
+entity MobileApp1
+entity MobileApp2
+entity SDL
+entity HeadUnit
+entity WEB
+actor User
+
+HeadUnit -> SDL : Start
+HeadUnit -> SDL : Register HTTP Service 
+
+MobileApp1 -> SDL : Registration
+MobileApp1 -> SDL : Interaction that requires HTTP connection
+SDL -> HeadUnit : 'GetAppServiceData request'
+HeadUnit <-> WEB : HTTP request/response
+HeadUnit -> SDL : 'GetAppServiceData response'
+SDL -> MobileApp1 : interaction result
+
+MobileApp2 -> SDL : Registration
+MobileApp2 -> SDL : Publish HTTP service
+User -> SDL : Activate HTTP service on MobileApp2
+
+MobileApp1 -> SDL : Interaction that requires HTTP connection
+SDL -> MobileApp2 : 'GetAppServiceData request'
+MobileApp2 <-> WEB : HTTP request/response
+MobileApp2 -> SDL : 'GetAppServiceData response'
+SDL -> MobileApp1 : interaction result
+
+@enduml
