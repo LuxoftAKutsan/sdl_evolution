@@ -16,6 +16,8 @@ SDL requires Policy Update after each registration
 Big amount of data should be transferred for policy update 
 Cellular connection may be not stable and not permanent.
 
+Providing policies within app registration will reduce amount of communications with policy server, and do not require internet connection each time during app registration.
+
 ## Proposed solution
 The proposed solution allows to avoid mandatory Policy Table Update right after a new application registration.  
 It will reduce amount of data that SDL will exchange with Policy Server.
