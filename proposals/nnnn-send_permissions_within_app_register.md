@@ -75,4 +75,4 @@ This proposal will affect sdl_core and policies.
 
 ## Alternatives considered
 
-No alternatives considered. 
+Send `app_policies` in bson within `RegisterAppinterface`. This will not extend MOBILE_API.
