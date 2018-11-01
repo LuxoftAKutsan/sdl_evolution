@@ -70,6 +70,8 @@ Add following data that service may process:
    </struct>
  ```
 
+Initialy system should provide HTTP service to SDL. 
+
 ### Usage of HTTP service
 
 Usage of the service will be performed by calling  `GetAppServiceData` RPC. 
@@ -77,6 +79,7 @@ HTTP AppService should perform HTTP requestto url and send `GetAppServiceData` r
 
 ![Sequence of using HTTP App service by SDL](../assets/proposals/nnnn-http-app-service/http_service_sequence.png)
 
+In case if no HTTP service is not available SDL should send UNSUPPORTED_RESOURCE to mobile for it's request. 
 
 ## Potential downsides
 SDL should trust HTTP App service. HTTP App service may replace data from server.
