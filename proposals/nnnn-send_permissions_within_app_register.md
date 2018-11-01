@@ -12,9 +12,9 @@ So SDL will not have to perform Policy Table Update after each app registration.
 ## Motivation
 This approach resolves the following issues:
 
-    SDL requires Policy Update after each registration
-    Big amount of data should be transferred for policy update 
-    Cellular connection may be not stable and not permanent.
+SDL requires Policy Update after each registration
+Big amount of data should be transferred for policy update 
+Cellular connection may be not stable and not permanent.
 
 ## Proposed solution
 The proposed solution allows to avoid mandatory Policy Table Update right after a new application registration.  
