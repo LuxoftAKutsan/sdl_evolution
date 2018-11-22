@@ -6,6 +6,7 @@
 * Impacted Platforms: [Core, ATF]
 
 ## Introduction
+
 This proposal is about porting SDL to QNX700 x86 platform and testing SDL on QNX700 x86.
 
 ## Motivation
@@ -18,6 +19,10 @@ This proposal is about porting SDL to QNX700 x86 platform and testing SDL on QNX
 Proposed default platform for QNX is x86 (same as for Linux). 
 
 ### Rework of SDL code 
+
+SDL code structure should be reworked to avoid code duplication for different platforms.
+The same SDL code should be used for each platform, except platform specific code.
+Platform specific code should be isolated and should not contain business logic.
 
 #### 3rd party libraries for QNX7
 
@@ -38,16 +43,6 @@ For each third party library used by SDL should be created `.cmake` file, that w
 
 This will allow to make clearer dependencies, avoid dependency gaps (required for multithreading compilation)  
 and replace dependency during porting to other platform just with replacing `.cmake` third party library file. 
-
-#### Create QNX7.0 USB transport adapter 
-
-Linux USB transport adapter uses `libusb` library.
-For QNX will be used another usb library and additional transport adapter should be created.
-
-#### Create QNX7.0 Bluetooth transport adapter 
-
-Linux USB transport adapter uses `libbluetooth` library.
-For QNX will be used another BT library and additional transport adapter should be created.
 
 #### Modify utils component
 
