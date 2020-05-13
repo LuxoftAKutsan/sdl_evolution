@@ -8,6 +8,13 @@
 
 ## Introduction
 
+@startuml firstDiagram
+
+Alice -> Bob: Hello
+Bob -> Alice: Hi!
+	
+@enduml
+
 This proposal will be to introduce a closed-source library that provides a secure method for storing information using Android's SharedPreferences system. The library will be owned and maintained by the SDL Maintainers and interested parties from the governing body. 
 
 ## Motivation
